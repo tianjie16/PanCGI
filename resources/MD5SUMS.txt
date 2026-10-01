@@ -1,10 +1,11 @@
-58d0cfa65614419d9ceb6136cb218bfd  ASSETS.tsv
-63e7e80587f8efc8c391b03907216ae1  FILES.tsv
+b0ffe715840767c39e0b9385072ab53d  ASSETS.tsv
+3f0fe52f635488f0881aee91b1623754  DATA_LICENSE
+4caf5fd18a3aa096ab7bec3b67ab9087  FILES.tsv
 4f69793a3374fedcfb632625b6716e87  PanCGI_CGI_calls_masked_v1.0.0.tar.gz
 03105c867a63a425df02aa5219915950  PanCGI_CGI_calls_unmasked_v1.0.0.tar.gz
-15881d91d62d2ef44a8f7129a0e06103  PanCGI_catalogue_v1.0.0.tar.gz
+646fa5c1717bea43527239e6994c8539  PanCGI_catalogue_v1.0.0.tar.gz
 2f555609886da7330b569de9a5a8b965  PanCGI_sequences_v1.0.0.tar.gz
 e023dfc40c17f5b14ff0cf470882f57e  PanCGI_states_v1.0.0.tar.gz
 71e5cd39a4a6832f46e6c01300787b7f  PanCGI_trajectories_v1.0.0.tar.gz
-c63d85b6992c81bfd0eeaeaa5bbcf73a  README.md
-87e15896cb785815ed25cf06361b6948  SCHEMA.json
+cb9adf0c085b215aa336ec5ebfff1c79  README.md
+efad8523470679f0f7498531570570bd  SCHEMA.json

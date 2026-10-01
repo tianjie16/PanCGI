@@ -49,3 +49,7 @@ The six archives extract into `PanCGI_resource_v1.0.0/`. Verify downloaded files
 - [HPRC assembly index](https://github.com/human-pangenomics/hprc_intermediate_assembly/blob/41aa47dd3430fbb250cdb6a78efde43313d35557/data_tables/assemblies_pre_release_v0.6.1.index.csv)
 - [UCSC cpgIslandExt schema](https://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=regulation&hgta_track=cpgIslandExt&hgta_table=cpgIslandExt&hgta_doSchema=describe+table+schema)
 - [BED coordinates](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
+
+## License
+
+Study-generated data and annotations are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Third-party data and annotations retain their original terms. See [DATA_LICENSE](DATA_LICENSE).

@@ -34,4 +34,4 @@ package-dir = {pancgi_app = "."}
 include-package-data = false
 
 [tool.setuptools.package-data]
-pancgi_app = ["scripts/*.sh", "scripts/*.py", "RELEASE_MANIFEST.json", "environment.yml", "README.md", "DEPENDENCIES.md", "LICENSE", "NOTICE", "docs/*.md", "examples/tiny/*", "assets/*.png", "resources/*.md", "resources/*.tsv", "resources/*.txt", "resources/*.json"]
+pancgi_app = ["scripts/*.sh", "scripts/*.py", "RELEASE_MANIFEST.json", "environment.yml", "README.md", "DEPENDENCIES.md", "LICENSE", "NOTICE", "docs/*.md", "examples/tiny/*", "assets/*.png", "resources/*.md", "resources/*.tsv", "resources/*.txt", "resources/*.json", "resources/DATA_LICENSE"]

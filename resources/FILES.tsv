@@ -1,6 +1,7 @@
 path	bytes	md5
-README.md	4099	c63d85b6992c81bfd0eeaeaa5bbcf73a
-SCHEMA.json	42618	87e15896cb785815ed25cf06361b6948
+DATA_LICENSE	18967	3f0fe52f635488f0881aee91b1623754
+README.md	4323	cb9adf0c085b215aa336ec5ebfff1c79
+SCHEMA.json	42644	efad8523470679f0f7498531570570bd
 calls/masked/HG00097_hap1.cpgIsland.masked.bed	2203585	37964af45c63ccf436f3c360c3a4b9df
 calls/masked/HG00097_hap2.cpgIsland.masked.bed	2184865	02cf8a17edf0b5f7fca2909bb1717f69
 calls/masked/HG00099_hap1.cpgIsland.masked.bed	2249949	ee1d49d2afc46830a51ec146b4f6cc0d

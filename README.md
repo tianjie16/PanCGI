@@ -82,6 +82,8 @@ Please use [GitHub Issues](https://github.com/tianjie16/PanCGI/issues) for quest
 
 Copyright 2026 Tianjie Liu. PanCGI software is licensed under [Apache-2.0](LICENSE). Dependencies retain their respective licenses.
 
+PanCGI data resources are licensed under [CC BY 4.0](resources/DATA_LICENSE).
+
 ## Related resources
 
 <p align="left">

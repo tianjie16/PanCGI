@@ -5,4 +5,5 @@ recursive-include examples/tiny *
 recursive-include tests *.py *.sh
 recursive-include assets *.png
 recursive-include resources *.md *.tsv *.txt *.json
+include resources/DATA_LICENSE
 global-exclude __pycache__ *.py[cod]

@@ -1566,5 +1566,6 @@
         "description": "CpG observed/expected ratio in the CGI call."
       }
     ]
-  }
+  },
+  "license": "CC-BY-4.0"
 }
