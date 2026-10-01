@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pancgi"
-version = "0.1.2"
+version = "0.1.3"
 authors = [{name = "Tianjie Liu"}]
 maintainers = [{name = "Tianjie Liu"}]
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
-description = "Graph-native CpG-island locus and allele catalogue construction"
+description = "Pangenome analysis of CpG island sequence and presence-absence variation."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
@@ -34,4 +34,4 @@ package-dir = {pancgi_app = "."}
 include-package-data = false
 
 [tool.setuptools.package-data]
-pancgi_app = ["scripts/*.sh", "scripts/*.py", "RELEASE_MANIFEST.json", "environment.yml", "README.md", "DEPENDENCIES.md", "CONTRIBUTING.md", "LICENSE", "NOTICE", "docs/*.md", "examples/tiny/*"]
+pancgi_app = ["scripts/*.sh", "scripts/*.py", "RELEASE_MANIFEST.json", "environment.yml", "README.md", "DEPENDENCIES.md", "LICENSE", "NOTICE", "docs/*.md", "examples/tiny/*", "assets/*.png", "resources/*.md", "resources/*.tsv", "resources/*.txt", "resources/*.json"]

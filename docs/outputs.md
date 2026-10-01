@@ -68,7 +68,10 @@ entries have `in_sample_set=0`. Frequencies are empty when all sample genotypes
 are missing. Apply frequency and call-rate thresholds for the intended downstream
 analysis.
 
-## Check result files
+## Optional result check
+
+PanCGI checks output consistency before marking a run complete. To check the
+result files again after copying or transferring them, run:
 
 ```bash
 pancgi validate-results analysis/results

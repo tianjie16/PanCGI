@@ -17,7 +17,7 @@ def main():
         'validate-inputs': [sys.executable, str(root/'pancgi_contract.py')],
         'validate-results': [sys.executable, str(root/'pancgi_validate_results.py')],
     }
-    p = argparse.ArgumentParser(prog='pancgi', description='Build and validate graph-native CpG-island catalogues. Each command accepts --help.')
+    p = argparse.ArgumentParser(prog='pancgi', description='Pangenome analysis of CpG island sequence and presence-absence variation. Each command accepts --help.')
     p.add_argument('--version', action='version', version=f'PanCGI {version}')
     p.add_argument('command', choices=list(commands), nargs='?')
     if len(sys.argv) > 1 and sys.argv[1] in commands:

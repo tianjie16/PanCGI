@@ -124,7 +124,7 @@ PIPELINE=${PACKAGE_DIR}/cpgi_nr_prod.py
 MAPPING=${PACKAGE_DIR}/pancgi_mapping.py
 INPUT_PREP=${PACKAGE_DIR}/pancgi_inputs.py
 DEPENDENCY_CHECK=${PACKAGE_DIR}/scripts/check_runtime_dependencies.py
-PUBLICATION_VALIDATOR=${PACKAGE_DIR}/scripts/validate_publication_inputs.py
+PREPARED_INPUT_VALIDATOR=${PACKAGE_DIR}/scripts/validate_prepared_inputs.py
 HAL_PIPELINE=${PACKAGE_DIR}/pancgi_hal.py
 WORKDIR=${OUTDIR}/work
 MAPPINGDIR=${WORKDIR}/mapping
@@ -189,7 +189,7 @@ run_step 05_prepare_inputs \
     --pathbed-dir "$PATHBED_DIR"
 
 run_step 05_validate_prepared_inputs \
-    "$PYTHON_BIN" "$PUBLICATION_VALIDATOR" \
+    "$PYTHON_BIN" "$PREPARED_INPUT_VALIDATOR" \
     --catalog "$CATALOG" \
     --genomes "$VALIDATED/genomes.validated.tsv" \
     --contigs "$VALIDATED/contigs.validated.tsv" \

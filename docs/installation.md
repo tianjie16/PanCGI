@@ -5,14 +5,18 @@ Use Linux with Python 3.12 and Bash. Python requirements are pinned in
 Some dependencies may need a C/C++ compiler when a binary wheel is unavailable.
 
 ```bash
+git clone https://github.com/tianjie16/PanCGI.git
+cd PanCGI
+python3.12 -m venv .venv
+source .venv/bin/activate
 python -m pip install .
 python -m pip check
 pancgi --version
 ```
 
 The wheel and source distribution contain the application, command scripts,
-input documentation and synthetic example. Development tests are included
-in the source distribution, not the installed application.
+input documentation and synthetic example. The source distribution also
+includes development tests.
 
 ## HAL
 
@@ -33,7 +37,7 @@ Use `--hal-runtime docker`, `--docker-image` with that image reference, and
 `--hal-liftover /home/cactus/bin/halLiftover` as appropriate for the command.
 Docker mode requires access to a running Docker daemon.
 
-## Synthetic Example
+## Synthetic example
 
 With native HAL executables available, run from the source directory:
 
@@ -45,14 +49,27 @@ pancgi run --prepared example_prepared \
   --genomes examples/tiny/genomes.tsv --paths examples/tiny/paths.tsv \
   --hal-runtime native --threads 2 --hal-threads 1 --out-dir example_run
 pancgi validate-results example_run/results
-python tests/check_example.py example_run/results examples/tiny/expected.json
 ```
 
 In Docker HAL mode, replace the native option with the runtime/image/executable options above for both
 `prepare` and `run`. Every command exposes its accepted options with `--help`.
-Use a fresh directory for each run; do not reuse partial results.
+Use a fresh output directory for each run.
 
-## Build Distributions
+## Development tests
+
+Run the test suite from the source directory:
+
+```bash
+bash tests/run_all.sh
+```
+
+After running the bundled example, compare its results with the expected values:
+
+```bash
+python tests/check_example.py example_run/results examples/tiny/expected.json
+```
+
+## Build distributions
 
 ```bash
 python -m pip install build
