@@ -1,0 +1,1570 @@
+{
+  "resource": "HPRC2 PanCGI",
+  "version": "1.0.0",
+  "missing_values": {
+    "tables": "empty field",
+    "state_matrices": "."
+  },
+  "tables": {
+    "catalogue/PanCGI_loci.tsv.gz": {
+      "row_unit": "one locus",
+      "primary_key": [
+        "locus_id"
+      ],
+      "columns": [
+        {
+          "name": "locus_id",
+          "description": "PanCGI locus identifier."
+        },
+        {
+          "name": "HPRC2_catalogue",
+          "description": "HPRC2 catalogue membership (1)."
+        },
+        {
+          "name": "CHM13_chromosome",
+          "description": "CHM13 chromosome."
+        },
+        {
+          "name": "CHM13_locus_start",
+          "description": "1-based CHM13 locus start (Supplementary Table 9)."
+        },
+        {
+          "name": "CHM13_locus_end",
+          "description": "1-based CHM13 locus end (Supplementary Table 9)."
+        },
+        {
+          "name": "HPRC_positive_haplotypes",
+          "description": "Number of the 462 HPRC haplotypes with state 1."
+        },
+        {
+          "name": "HPRC_negative_haplotypes",
+          "description": "Number of HPRC haplotypes with state 0."
+        },
+        {
+          "name": "HPRC_missing_haplotypes",
+          "description": "Number of the 462 HPRC haplotypes with missing state."
+        },
+        {
+          "name": "HPRC_called_haplotypes",
+          "description": "HPRC_positive_haplotypes + HPRC_negative_haplotypes."
+        },
+        {
+          "name": "fraction_of_462_HPRC_haplotypes",
+          "description": "HPRC_positive_haplotypes / 462."
+        },
+        {
+          "name": "frequency_among_called_HPRC_haplotypes",
+          "description": "HPRC_positive_haplotypes / HPRC_called_haplotypes; missing if the denominator is zero."
+        },
+        {
+          "name": "CHM13_CGI",
+          "description": "CHM13 CGI presence at this locus (1/0), including alleles outside the catalogue."
+        },
+        {
+          "name": "GRCh38_CGI",
+          "description": "GRCh38 CGI presence at this locus (1/0), including alleles outside the catalogue."
+        },
+        {
+          "name": "CHM13_CGI_in_released_alleles",
+          "description": "1 when a released allele at this locus contains a CHM13 member."
+        },
+        {
+          "name": "GRCh38_CGI_in_released_alleles",
+          "description": "1 when a released allele at this locus contains a GRCh38 member."
+        },
+        {
+          "name": "reference_class",
+          "description": "both_references, CHM13_only, GRCh38_only or neither_reference, based on CHM13_CGI and GRCh38_CGI."
+        },
+        {
+          "name": "allele_count",
+          "description": "Number of catalogue alleles at this locus."
+        },
+        {
+          "name": "member_count",
+          "description": "Number of CGI members in this locus, including reference members."
+        },
+        {
+          "name": "trajectory_class",
+          "description": "Trajectory classification (Supplementary Table 10). Empty for loci outside the trajectory analysis."
+        }
+      ]
+    },
+    "catalogue/PanCGI_alleles.tsv.gz": {
+      "row_unit": "one allele cluster",
+      "primary_key": [
+        "allele_id"
+      ],
+      "columns": [
+        {
+          "name": "allele_id",
+          "description": "Allele-cluster identifier, equal to the representative member ID."
+        },
+        {
+          "name": "locus_id",
+          "description": "PanCGI locus identifier."
+        },
+        {
+          "name": "catalogue_class",
+          "description": "Catalogue class; CHM13-associated denotes association at the locus level."
+        },
+        {
+          "name": "sequence_origin",
+          "description": "CGI sequence-origin category."
+        },
+        {
+          "name": "HPRC_haplotypes_with_allele",
+          "description": "Number of the 462 HPRC haplotypes carrying this allele."
+        },
+        {
+          "name": "fraction_of_462_HPRC_haplotypes",
+          "description": "HPRC_haplotypes_with_allele / 462."
+        },
+        {
+          "name": "frequency_class",
+          "description": "Allele-frequency category (Supplementary Table 9)."
+        },
+        {
+          "name": "representative_CpGI_length_bp",
+          "description": "Length of the representative CGI call in base pairs."
+        },
+        {
+          "name": "representative_CpG_count",
+          "description": "CpG count in the masked representative CGI call."
+        },
+        {
+          "name": "representative_GC_percent",
+          "description": "GC percentage in the masked representative CGI call."
+        },
+        {
+          "name": "representative_CpG_observed_to_expected_ratio",
+          "description": "CpG observed/expected ratio in the masked representative CGI call."
+        },
+        {
+          "name": "CHM13_chromosome",
+          "description": "CHM13 chromosome."
+        },
+        {
+          "name": "CHM13_locus_start",
+          "description": "1-based CHM13 locus start (Supplementary Table 9)."
+        },
+        {
+          "name": "CHM13_locus_end",
+          "description": "1-based CHM13 locus end (Supplementary Table 9)."
+        },
+        {
+          "name": "representative_assembly_contig",
+          "description": "Contig identifier in the source assembly."
+        },
+        {
+          "name": "representative_assembly_start",
+          "description": "0-based inclusive start of the representative CGI in its source assembly."
+        },
+        {
+          "name": "representative_assembly_end",
+          "description": "0-based exclusive end of the representative CGI in its source assembly."
+        },
+        {
+          "name": "representative_sample",
+          "description": "Sample supplying the representative CGI; joins sample_id in metadata/assemblies.tsv."
+        },
+        {
+          "name": "representative_haplotype",
+          "description": "Haplotype supplying the representative CGI; joins haplotype_id in metadata/assemblies.tsv."
+        },
+        {
+          "name": "trajectory_class",
+          "description": "Trajectory classification (Supplementary Table 10). Empty for loci outside the trajectory analysis."
+        },
+        {
+          "name": "coordinate_system",
+          "description": "Coordinate conventions stated in Supplementary Table 9."
+        },
+        {
+          "name": "associated_SV_id",
+          "description": "Associated structural-variant identifier."
+        },
+        {
+          "name": "associated_SV_type",
+          "description": "Associated structural-variant type."
+        },
+        {
+          "name": "associated_SV_CHM13_position",
+          "description": "1-based CHM13 position of the associated structural variant."
+        },
+        {
+          "name": "associated_SV_length_bp",
+          "description": "Associated structural-variant length in bp."
+        },
+        {
+          "name": "HPRC2_catalogue",
+          "description": "HPRC2 catalogue membership (1)."
+        },
+        {
+          "name": "representative_member_id",
+          "description": "Member providing the representative FASTA record, in the forward orientation of its source assembly."
+        },
+        {
+          "name": "CHM13_CGI_allele",
+          "description": "1 when this allele cluster contains a CHM13 CGI member."
+        },
+        {
+          "name": "GRCh38_CGI_allele",
+          "description": "1 when this allele cluster contains a GRCh38 CGI member."
+        },
+        {
+          "name": "CHM13_CGI_locus",
+          "description": "CHM13_CGI from the corresponding locus record."
+        },
+        {
+          "name": "GRCh38_CGI_locus",
+          "description": "GRCh38_CGI from the corresponding locus record."
+        },
+        {
+          "name": "member_count",
+          "description": "Number of CGI members in this allele, including reference members."
+        },
+        {
+          "name": "reference_member_count",
+          "description": "Number of CHM13 and GRCh38 members in this allele cluster."
+        },
+        {
+          "name": "representative_sequence_length_bp",
+          "description": "Representative sequence length in bp."
+        },
+        {
+          "name": "representative_sequence_GC_count",
+          "description": "G+C count in the representative sequence."
+        },
+        {
+          "name": "representative_sequence_CpG_count",
+          "description": "CG dinucleotide count in the representative sequence."
+        },
+        {
+          "name": "representative_sequence_ambiguous_bases",
+          "description": "Number of non-ACGT bases in the representative sequence."
+        },
+        {
+          "name": "representative_sequence_md5",
+          "description": "MD5 of the upper-case sequence alone, excluding the FASTA header and line breaks."
+        },
+        {
+          "name": "representative_sequence_status",
+          "description": "complete: ACGT bases only; contains_assembly_gap: sequence includes N bases."
+        }
+      ]
+    },
+    "catalogue/PanCGI_members.tsv.gz": {
+      "row_unit": "one assembly-specific CGI member",
+      "primary_key": [
+        "member_id"
+      ],
+      "columns": [
+        {
+          "name": "allele_id",
+          "description": "Allele-cluster identifier, equal to the representative member ID."
+        },
+        {
+          "name": "locus_id",
+          "description": "PanCGI locus identifier."
+        },
+        {
+          "name": "member_id",
+          "description": "Assembly-specific CGI identifier, with a 0-based, half-open coordinate suffix."
+        },
+        {
+          "name": "haplotype_id",
+          "description": "Haplotype identifier linking members, state matrices and metadata/assemblies.tsv."
+        },
+        {
+          "name": "is_reference",
+          "description": "1 for CHM13/GRCh38; 0 for an HPRC haplotype."
+        },
+        {
+          "name": "assembly_contig",
+          "description": "Contig identifier in the source assembly."
+        },
+        {
+          "name": "assembly_start0",
+          "description": "0-based, inclusive start in the source assembly."
+        },
+        {
+          "name": "assembly_end0",
+          "description": "0-based, exclusive end in the source assembly."
+        },
+        {
+          "name": "call_length_bp",
+          "description": "CGI interval length: assembly_end0 - assembly_start0."
+        },
+        {
+          "name": "call_CpG_count",
+          "description": "CpG count in the masked CGI call."
+        },
+        {
+          "name": "call_GC_count_estimate",
+          "description": "GC count estimated as rounded interval length times GC fraction."
+        },
+        {
+          "name": "call_CpG_percent",
+          "description": "CpG percentage: 200 * CpG count / interval length."
+        },
+        {
+          "name": "call_GC_percent",
+          "description": "GC percentage in the CGI call."
+        },
+        {
+          "name": "call_CpG_OE",
+          "description": "CpG observed/expected ratio in the CGI call."
+        },
+        {
+          "name": "is_representative",
+          "description": "1 for the designated representative member of this allele cluster."
+        }
+      ]
+    },
+    "catalogue/PanCGI_allele_haplotype_membership.tsv.gz": {
+      "row_unit": "one member-to-allele relationship",
+      "primary_key": [
+        "member_id"
+      ],
+      "columns": [
+        {
+          "name": "allele_id",
+          "description": "Allele-cluster identifier, equal to the representative member ID."
+        },
+        {
+          "name": "locus_id",
+          "description": "PanCGI locus identifier."
+        },
+        {
+          "name": "haplotype_id",
+          "description": "Haplotype identifier linking members, state matrices and metadata/assemblies.tsv."
+        },
+        {
+          "name": "member_id",
+          "description": "Assembly-specific CGI identifier, with a 0-based, half-open coordinate suffix."
+        }
+      ]
+    },
+    "evolution/PanCGI_trajectories.tsv.gz": {
+      "row_unit": "one assessed locus",
+      "primary_key": [
+        "locus_id"
+      ],
+      "columns": [
+        {
+          "name": "locus_id",
+          "description": "PanCGI locus identifier."
+        },
+        {
+          "name": "chromosome",
+          "description": "CHM13 chromosome."
+        },
+        {
+          "name": "genealogy_position",
+          "description": "Genealogy evaluation position (Supplementary Table 10 coordinates)."
+        },
+        {
+          "name": "locus_start",
+          "description": "Locus start (Supplementary Table 10 coordinates)."
+        },
+        {
+          "name": "locus_end",
+          "description": "Locus end (Supplementary Table 10 coordinates)."
+        },
+        {
+          "name": "called_haplotypes",
+          "description": "Number of study haplotypes with a CGI state call at this locus."
+        },
+        {
+          "name": "CpGI_positive_haplotypes",
+          "description": "Number of study haplotypes with a CGI-positive state at this locus."
+        },
+        {
+          "name": "CpGI_negative_haplotypes",
+          "description": "Number of study haplotypes with a CGI-negative state at this locus."
+        },
+        {
+          "name": "uncalled_haplotypes",
+          "description": "Number of study haplotypes without a CGI state call at this locus."
+        },
+        {
+          "name": "inferred_root_state",
+          "description": "Inferred CGI state at the root, or unresolved status."
+        },
+        {
+          "name": "Sankoff_cost_difference",
+          "description": "Sankoff cost for a CGI-negative root minus cost for a CGI-positive root."
+        },
+        {
+          "name": "trajectory_class",
+          "description": "Trajectory classification (Supplementary Table 10)."
+        },
+        {
+          "name": "trajectory_direction",
+          "description": "Gain, loss, unresolved or unavailable."
+        },
+        {
+          "name": "changed_state_haplotypes",
+          "description": "Number of haplotypes with CGI state opposite to the inferred root state."
+        },
+        {
+          "name": "best_single_branch_Jaccard",
+          "description": "Best single-branch Jaccard index."
+        },
+        {
+          "name": "root_direction_high_confidence",
+          "description": "Root-direction confidence flag; criteria are defined in Methods."
+        },
+        {
+          "name": "trajectory_class_high_confidence",
+          "description": "Trajectory-class confidence flag; criteria are defined in Methods."
+        }
+      ]
+    },
+    "metadata/assemblies.tsv": {
+      "row_unit": "one source assembly",
+      "primary_key": [
+        "haplotype_id"
+      ],
+      "columns": [
+        {
+          "name": "haplotype_id",
+          "description": "Haplotype identifier linking members, state matrices and metadata/assemblies.tsv."
+        },
+        {
+          "name": "sample_id",
+          "description": "HPRC sample identifier or reference assembly identifier."
+        },
+        {
+          "name": "assembly_haplotype_index",
+          "description": "Haplotype index in the assembly namespace and HPRC assembly index."
+        },
+        {
+          "name": "assembly_prefix",
+          "description": "Sample#haplotype prefix in CGI contig identifiers."
+        },
+        {
+          "name": "hal_genome",
+          "description": "Genome name in the HPRCv2 HAL alignment."
+        },
+        {
+          "name": "is_reference",
+          "description": "1 for CHM13/GRCh38; 0 for an HPRC haplotype."
+        },
+        {
+          "name": "HPRC_haplotype",
+          "description": "1 for one of the 462 study haplotypes; references have value 0."
+        },
+        {
+          "name": "assembly_source_index",
+          "description": "Version and commit of the HPRC assembly index used to identify the source assembly."
+        },
+        {
+          "name": "assembly_name",
+          "description": "Assembly name in the versioned HPRC index."
+        },
+        {
+          "name": "genbank_accession",
+          "description": "GenBank assembly accession from the versioned HPRC index."
+        },
+        {
+          "name": "assembly",
+          "description": "Source assembly FASTA URL from the versioned HPRC index."
+        },
+        {
+          "name": "assembly_md5",
+          "description": "Source assembly checksum-file URL from the versioned HPRC index."
+        },
+        {
+          "name": "assembly_fai",
+          "description": "Source assembly FASTA-index URL from the versioned HPRC index."
+        },
+        {
+          "name": "assembly_method",
+          "description": "Assembly method reported in the source index."
+        },
+        {
+          "name": "assembly_method_version",
+          "description": "Version of the assembly method reported in the source index."
+        }
+      ]
+    },
+    "metadata/assembly_contigs.tsv.gz": {
+      "row_unit": "one assembly contig",
+      "primary_key": [
+        "haplotype_id",
+        "assembly_contig"
+      ],
+      "columns": [
+        {
+          "name": "haplotype_id",
+          "description": "Haplotype identifier linking members, state matrices and metadata/assemblies.tsv."
+        },
+        {
+          "name": "assembly_contig",
+          "description": "Contig identifier in the source assembly."
+        },
+        {
+          "name": "hal_genome",
+          "description": "Genome name in the HPRCv2 HAL alignment."
+        },
+        {
+          "name": "assembly_sequence_length_bp",
+          "description": "Source assembly contig length in bp."
+        }
+      ]
+    },
+    "metadata/CGI_BED_files.tsv": {
+      "row_unit": "one CGI BED file",
+      "primary_key": [
+        "path"
+      ],
+      "columns": [
+        {
+          "name": "path",
+          "description": "Path relative to the extracted resource root."
+        },
+        {
+          "name": "haplotype_id",
+          "description": "Haplotype identifier linking members, state matrices and metadata/assemblies.tsv."
+        },
+        {
+          "name": "masking",
+          "description": "masked or unmasked CGI-call set."
+        },
+        {
+          "name": "rows",
+          "description": "Number of data records, excluding a TSV header where present."
+        },
+        {
+          "name": "bytes",
+          "description": "File size in bytes."
+        },
+        {
+          "name": "md5",
+          "description": "MD5 checksum of the complete file bytes."
+        },
+        {
+          "name": "assembly_prefix",
+          "description": "Sample#haplotype prefix in CGI contig identifiers."
+        }
+      ]
+    }
+  },
+  "states": {
+    "genotypes/PanCGI_allele_haplotype_states.tsv.gz": {
+      "row_id": "allele_id",
+      "haplotype_columns": [
+        "CHM13",
+        "GRCh38",
+        "HG00097_hap1",
+        "HG00097_hap2",
+        "HG00099_hap1",
+        "HG00099_hap2",
+        "HG00126_hap1",
+        "HG00126_hap2",
+        "HG00128_hap1",
+        "HG00128_hap2",
+        "HG00133_hap1",
+        "HG00133_hap2",
+        "HG00140_hap1",
+        "HG00140_hap2",
+        "HG00146_hap1",
+        "HG00146_hap2",
+        "HG00232_hap1",
+        "HG00232_hap2",
+        "HG00235_hap1",
+        "HG00235_hap2",
+        "HG00253_hap1",
+        "HG00253_hap2",
+        "HG00280_hap1",
+        "HG00280_hap2",
+        "HG00290_hap1",
+        "HG00290_hap2",
+        "HG002_mat",
+        "HG002_pat",
+        "HG00320_hap1",
+        "HG00320_hap2",
+        "HG00321_hap1",
+        "HG00321_hap2",
+        "HG00323_hap1",
+        "HG00323_hap2",
+        "HG00329_hap1",
+        "HG00329_hap2",
+        "HG00344_hap1",
+        "HG00344_hap2",
+        "HG00350_hap1",
+        "HG00350_hap2",
+        "HG00408_mat",
+        "HG00408_pat",
+        "HG00423_mat",
+        "HG00423_pat",
+        "HG00438_mat",
+        "HG00438_pat",
+        "HG00544_mat",
+        "HG00544_pat",
+        "HG00558_mat",
+        "HG00558_pat",
+        "HG00597_mat",
+        "HG00597_pat",
+        "HG005_mat",
+        "HG005_pat",
+        "HG00609_mat",
+        "HG00609_pat",
+        "HG00621_mat",
+        "HG00621_pat",
+        "HG00639_mat",
+        "HG00639_pat",
+        "HG00642_mat",
+        "HG00642_pat",
+        "HG00658_mat",
+        "HG00658_pat",
+        "HG00673_mat",
+        "HG00673_pat",
+        "HG00706_mat",
+        "HG00706_pat",
+        "HG00733_mat",
+        "HG00733_pat",
+        "HG00735_mat",
+        "HG00735_pat",
+        "HG00738_mat",
+        "HG00738_pat",
+        "HG00741_mat",
+        "HG00741_pat",
+        "HG01071_mat",
+        "HG01071_pat",
+        "HG01074_mat",
+        "HG01074_pat",
+        "HG01081_mat",
+        "HG01081_pat",
+        "HG01099_mat",
+        "HG01099_pat",
+        "HG01106_mat",
+        "HG01106_pat",
+        "HG01109_mat",
+        "HG01109_pat",
+        "HG01123_mat",
+        "HG01123_pat",
+        "HG01150_mat",
+        "HG01150_pat",
+        "HG01167_hap1",
+        "HG01167_hap2",
+        "HG01175_mat",
+        "HG01175_pat",
+        "HG01192_mat",
+        "HG01192_pat",
+        "HG01243_mat",
+        "HG01243_pat",
+        "HG01252_mat",
+        "HG01252_pat",
+        "HG01255_mat",
+        "HG01255_pat",
+        "HG01258_mat",
+        "HG01258_pat",
+        "HG01261_mat",
+        "HG01261_pat",
+        "HG01346_mat",
+        "HG01346_pat",
+        "HG01358_mat",
+        "HG01358_pat",
+        "HG01361_mat",
+        "HG01361_pat",
+        "HG01433_mat",
+        "HG01433_pat",
+        "HG01496_mat",
+        "HG01496_pat",
+        "HG01530_hap1",
+        "HG01530_hap2",
+        "HG01784_hap1",
+        "HG01784_hap2",
+        "HG01786_hap1",
+        "HG01786_hap2",
+        "HG01884_mat",
+        "HG01884_pat",
+        "HG01891_mat",
+        "HG01891_pat",
+        "HG01928_mat",
+        "HG01928_pat",
+        "HG01934_mat",
+        "HG01934_pat",
+        "HG01940_mat",
+        "HG01940_pat",
+        "HG01943_mat",
+        "HG01943_pat",
+        "HG01952_mat",
+        "HG01952_pat",
+        "HG01960_mat",
+        "HG01960_pat",
+        "HG01969_mat",
+        "HG01969_pat",
+        "HG01975_mat",
+        "HG01975_pat",
+        "HG01978_mat",
+        "HG01978_pat",
+        "HG01981_mat",
+        "HG01981_pat",
+        "HG01993_mat",
+        "HG01993_pat",
+        "HG02004_mat",
+        "HG02004_pat",
+        "HG02015_mat",
+        "HG02015_pat",
+        "HG02027_mat",
+        "HG02027_pat",
+        "HG02040_hap1",
+        "HG02040_hap2",
+        "HG02055_mat",
+        "HG02055_pat",
+        "HG02056_mat",
+        "HG02056_pat",
+        "HG02071_mat",
+        "HG02071_pat",
+        "HG02074_mat",
+        "HG02074_pat",
+        "HG02080_mat",
+        "HG02080_pat",
+        "HG02083_mat",
+        "HG02083_pat",
+        "HG02109_mat",
+        "HG02109_pat",
+        "HG02129_mat",
+        "HG02129_pat",
+        "HG02132_mat",
+        "HG02132_pat",
+        "HG02135_mat",
+        "HG02135_pat",
+        "HG02145_mat",
+        "HG02145_pat",
+        "HG02148_mat",
+        "HG02148_pat",
+        "HG02155_hap1",
+        "HG02155_hap2",
+        "HG02165_hap1",
+        "HG02165_hap2",
+        "HG02178_hap1",
+        "HG02178_hap2",
+        "HG02257_mat",
+        "HG02257_pat",
+        "HG02258_mat",
+        "HG02258_pat",
+        "HG02273_hap1",
+        "HG02273_hap2",
+        "HG02280_mat",
+        "HG02280_pat",
+        "HG02293_mat",
+        "HG02293_pat",
+        "HG02300_mat",
+        "HG02300_pat",
+        "HG02391_hap1",
+        "HG02391_hap2",
+        "HG02392_hap1",
+        "HG02392_hap2",
+        "HG02451_mat",
+        "HG02451_pat",
+        "HG02486_mat",
+        "HG02486_pat",
+        "HG02514_mat",
+        "HG02514_pat",
+        "HG02523_mat",
+        "HG02523_pat",
+        "HG02559_mat",
+        "HG02559_pat",
+        "HG02572_mat",
+        "HG02572_pat",
+        "HG02583_hap1",
+        "HG02583_hap2",
+        "HG02602_mat",
+        "HG02602_pat",
+        "HG02615_mat",
+        "HG02615_pat",
+        "HG02622_mat",
+        "HG02622_pat",
+        "HG02630_mat",
+        "HG02630_pat",
+        "HG02647_mat",
+        "HG02647_pat",
+        "HG02668_mat",
+        "HG02668_pat",
+        "HG02698_mat",
+        "HG02698_pat",
+        "HG02717_mat",
+        "HG02717_pat",
+        "HG02723_mat",
+        "HG02723_pat",
+        "HG02735_mat",
+        "HG02735_pat",
+        "HG02738_mat",
+        "HG02738_pat",
+        "HG02809_mat",
+        "HG02809_pat",
+        "HG02818_mat",
+        "HG02818_pat",
+        "HG02841_mat",
+        "HG02841_pat",
+        "HG02886_mat",
+        "HG02886_pat",
+        "HG02922_hap1",
+        "HG02922_hap2",
+        "HG02965_hap1",
+        "HG02965_hap2",
+        "HG02976_hap1",
+        "HG02976_hap2",
+        "HG02984_mat",
+        "HG02984_pat",
+        "HG03017_mat",
+        "HG03017_pat",
+        "HG03041_mat",
+        "HG03041_pat",
+        "HG03050_mat",
+        "HG03050_pat",
+        "HG03098_mat",
+        "HG03098_pat",
+        "HG03130_hap1",
+        "HG03130_hap2",
+        "HG03139_hap1",
+        "HG03139_hap2",
+        "HG03195_hap1",
+        "HG03195_hap2",
+        "HG03209_hap1",
+        "HG03209_hap2",
+        "HG03225_hap1",
+        "HG03225_hap2",
+        "HG03239_mat",
+        "HG03239_pat",
+        "HG03270_hap1",
+        "HG03270_hap2",
+        "HG03369_hap1",
+        "HG03369_hap2",
+        "HG03453_mat",
+        "HG03453_pat",
+        "HG03470_hap1",
+        "HG03470_hap2",
+        "HG03471_hap1",
+        "HG03471_hap2",
+        "HG03486_mat",
+        "HG03486_pat",
+        "HG03516_mat",
+        "HG03516_pat",
+        "HG03521_hap1",
+        "HG03521_hap2",
+        "HG03540_mat",
+        "HG03540_pat",
+        "HG03579_mat",
+        "HG03579_pat",
+        "HG03583_hap1",
+        "HG03583_hap2",
+        "HG03654_mat",
+        "HG03654_pat",
+        "HG03669_mat",
+        "HG03669_pat",
+        "HG03688_mat",
+        "HG03688_pat",
+        "HG03704_mat",
+        "HG03704_pat",
+        "HG03710_mat",
+        "HG03710_pat",
+        "HG03742_hap1",
+        "HG03742_hap2",
+        "HG03784_hap1",
+        "HG03784_hap2",
+        "HG03804_mat",
+        "HG03804_pat",
+        "HG03816_mat",
+        "HG03816_pat",
+        "HG03831_mat",
+        "HG03831_pat",
+        "HG03834_mat",
+        "HG03834_pat",
+        "HG03874_hap1",
+        "HG03874_hap2",
+        "HG03927_mat",
+        "HG03927_pat",
+        "HG03942_mat",
+        "HG03942_pat",
+        "HG04115_mat",
+        "HG04115_pat",
+        "HG04157_mat",
+        "HG04157_pat",
+        "HG04160_mat",
+        "HG04160_pat",
+        "HG04184_mat",
+        "HG04184_pat",
+        "HG04187_mat",
+        "HG04187_pat",
+        "HG04199_mat",
+        "HG04199_pat",
+        "HG04204_mat",
+        "HG04204_pat",
+        "HG04228_mat",
+        "HG04228_pat",
+        "HG06807_mat",
+        "HG06807_pat",
+        "NA18505_hap1",
+        "NA18505_hap2",
+        "NA18508_hap1",
+        "NA18508_hap2",
+        "NA18522_hap1",
+        "NA18522_hap2",
+        "NA18565_hap1",
+        "NA18565_hap2",
+        "NA18570_hap1",
+        "NA18570_hap2",
+        "NA18608_hap1",
+        "NA18608_hap2",
+        "NA18620_hap1",
+        "NA18620_hap2",
+        "NA18747_hap1",
+        "NA18747_hap2",
+        "NA18879_hap1",
+        "NA18879_hap2",
+        "NA18906_mat",
+        "NA18906_pat",
+        "NA18940_hap1",
+        "NA18940_hap2",
+        "NA18943_hap1",
+        "NA18943_hap2",
+        "NA18944_hap1",
+        "NA18944_hap2",
+        "NA18945_hap1",
+        "NA18945_hap2",
+        "NA18948_hap1",
+        "NA18948_hap2",
+        "NA18952_hap1",
+        "NA18952_hap2",
+        "NA18959_hap1",
+        "NA18959_hap2",
+        "NA18960_hap1",
+        "NA18960_hap2",
+        "NA18967_hap1",
+        "NA18967_hap2",
+        "NA18970_hap1",
+        "NA18970_hap2",
+        "NA18971_hap1",
+        "NA18971_hap2",
+        "NA18974_hap1",
+        "NA18974_hap2",
+        "NA18976_hap1",
+        "NA18976_hap2",
+        "NA18982_hap1",
+        "NA18982_hap2",
+        "NA18983_hap1",
+        "NA18983_hap2",
+        "NA19036_hap1",
+        "NA19036_hap2",
+        "NA19043_hap1",
+        "NA19043_hap2",
+        "NA19087_hap1",
+        "NA19087_hap2",
+        "NA19159_hap1",
+        "NA19159_hap2",
+        "NA19185_hap1",
+        "NA19185_hap2",
+        "NA19240_mat",
+        "NA19240_pat",
+        "NA19338_hap1",
+        "NA19338_hap2",
+        "NA19391_hap1",
+        "NA19391_hap2",
+        "NA19443_hap1",
+        "NA19443_hap2",
+        "NA19468_hap1",
+        "NA19468_hap2",
+        "NA19682_hap1",
+        "NA19682_hap2",
+        "NA19700_hap1",
+        "NA19700_hap2",
+        "NA19776_hap1",
+        "NA19776_hap2",
+        "NA19835_hap1",
+        "NA19835_hap2",
+        "NA19909_hap1",
+        "NA19909_hap2",
+        "NA20129_mat",
+        "NA20129_pat",
+        "NA20282_hap1",
+        "NA20282_hap2",
+        "NA20346_hap1",
+        "NA20346_hap2",
+        "NA20503_hap1",
+        "NA20503_hap2",
+        "NA20752_hap1",
+        "NA20752_hap2",
+        "NA20762_hap1",
+        "NA20762_hap2",
+        "NA20799_hap1",
+        "NA20799_hap2",
+        "NA20805_hap1",
+        "NA20805_hap2",
+        "NA20806_hap1",
+        "NA20806_hap2",
+        "NA20809_hap1",
+        "NA20809_hap2",
+        "NA20827_hap1",
+        "NA20827_hap2",
+        "NA20850_hap1",
+        "NA20850_hap2",
+        "NA20870_hap1",
+        "NA20870_hap2",
+        "NA20905_hap1",
+        "NA20905_hap2",
+        "NA21093_hap1",
+        "NA21093_hap2",
+        "NA21102_hap1",
+        "NA21102_hap2",
+        "NA21106_hap1",
+        "NA21106_hap2",
+        "NA21110_hap1",
+        "NA21110_hap2",
+        "NA21144_hap1",
+        "NA21144_hap2",
+        "NA21309_mat",
+        "NA21309_pat"
+      ],
+      "HPRC_haplotypes": 462,
+      "references": [
+        "CHM13",
+        "GRCh38"
+      ],
+      "encoding": {
+        "1": "allele present",
+        "0": "allele absent",
+        ".": "missing state"
+      },
+      "note": "Allele presence is recorded per haplotype."
+    },
+    "genotypes/PanCGI_locus_haplotype_states.tsv.gz": {
+      "row_id": "locus_id",
+      "haplotype_columns": [
+        "CHM13",
+        "GRCh38",
+        "HG00097_hap1",
+        "HG00097_hap2",
+        "HG00099_hap1",
+        "HG00099_hap2",
+        "HG00126_hap1",
+        "HG00126_hap2",
+        "HG00128_hap1",
+        "HG00128_hap2",
+        "HG00133_hap1",
+        "HG00133_hap2",
+        "HG00140_hap1",
+        "HG00140_hap2",
+        "HG00146_hap1",
+        "HG00146_hap2",
+        "HG00232_hap1",
+        "HG00232_hap2",
+        "HG00235_hap1",
+        "HG00235_hap2",
+        "HG00253_hap1",
+        "HG00253_hap2",
+        "HG00280_hap1",
+        "HG00280_hap2",
+        "HG00290_hap1",
+        "HG00290_hap2",
+        "HG002_mat",
+        "HG002_pat",
+        "HG00320_hap1",
+        "HG00320_hap2",
+        "HG00321_hap1",
+        "HG00321_hap2",
+        "HG00323_hap1",
+        "HG00323_hap2",
+        "HG00329_hap1",
+        "HG00329_hap2",
+        "HG00344_hap1",
+        "HG00344_hap2",
+        "HG00350_hap1",
+        "HG00350_hap2",
+        "HG00408_mat",
+        "HG00408_pat",
+        "HG00423_mat",
+        "HG00423_pat",
+        "HG00438_mat",
+        "HG00438_pat",
+        "HG00544_mat",
+        "HG00544_pat",
+        "HG00558_mat",
+        "HG00558_pat",
+        "HG00597_mat",
+        "HG00597_pat",
+        "HG005_mat",
+        "HG005_pat",
+        "HG00609_mat",
+        "HG00609_pat",
+        "HG00621_mat",
+        "HG00621_pat",
+        "HG00639_mat",
+        "HG00639_pat",
+        "HG00642_mat",
+        "HG00642_pat",
+        "HG00658_mat",
+        "HG00658_pat",
+        "HG00673_mat",
+        "HG00673_pat",
+        "HG00706_mat",
+        "HG00706_pat",
+        "HG00733_mat",
+        "HG00733_pat",
+        "HG00735_mat",
+        "HG00735_pat",
+        "HG00738_mat",
+        "HG00738_pat",
+        "HG00741_mat",
+        "HG00741_pat",
+        "HG01071_mat",
+        "HG01071_pat",
+        "HG01074_mat",
+        "HG01074_pat",
+        "HG01081_mat",
+        "HG01081_pat",
+        "HG01099_mat",
+        "HG01099_pat",
+        "HG01106_mat",
+        "HG01106_pat",
+        "HG01109_mat",
+        "HG01109_pat",
+        "HG01123_mat",
+        "HG01123_pat",
+        "HG01150_mat",
+        "HG01150_pat",
+        "HG01167_hap1",
+        "HG01167_hap2",
+        "HG01175_mat",
+        "HG01175_pat",
+        "HG01192_mat",
+        "HG01192_pat",
+        "HG01243_mat",
+        "HG01243_pat",
+        "HG01252_mat",
+        "HG01252_pat",
+        "HG01255_mat",
+        "HG01255_pat",
+        "HG01258_mat",
+        "HG01258_pat",
+        "HG01261_mat",
+        "HG01261_pat",
+        "HG01346_mat",
+        "HG01346_pat",
+        "HG01358_mat",
+        "HG01358_pat",
+        "HG01361_mat",
+        "HG01361_pat",
+        "HG01433_mat",
+        "HG01433_pat",
+        "HG01496_mat",
+        "HG01496_pat",
+        "HG01530_hap1",
+        "HG01530_hap2",
+        "HG01784_hap1",
+        "HG01784_hap2",
+        "HG01786_hap1",
+        "HG01786_hap2",
+        "HG01884_mat",
+        "HG01884_pat",
+        "HG01891_mat",
+        "HG01891_pat",
+        "HG01928_mat",
+        "HG01928_pat",
+        "HG01934_mat",
+        "HG01934_pat",
+        "HG01940_mat",
+        "HG01940_pat",
+        "HG01943_mat",
+        "HG01943_pat",
+        "HG01952_mat",
+        "HG01952_pat",
+        "HG01960_mat",
+        "HG01960_pat",
+        "HG01969_mat",
+        "HG01969_pat",
+        "HG01975_mat",
+        "HG01975_pat",
+        "HG01978_mat",
+        "HG01978_pat",
+        "HG01981_mat",
+        "HG01981_pat",
+        "HG01993_mat",
+        "HG01993_pat",
+        "HG02004_mat",
+        "HG02004_pat",
+        "HG02015_mat",
+        "HG02015_pat",
+        "HG02027_mat",
+        "HG02027_pat",
+        "HG02040_hap1",
+        "HG02040_hap2",
+        "HG02055_mat",
+        "HG02055_pat",
+        "HG02056_mat",
+        "HG02056_pat",
+        "HG02071_mat",
+        "HG02071_pat",
+        "HG02074_mat",
+        "HG02074_pat",
+        "HG02080_mat",
+        "HG02080_pat",
+        "HG02083_mat",
+        "HG02083_pat",
+        "HG02109_mat",
+        "HG02109_pat",
+        "HG02129_mat",
+        "HG02129_pat",
+        "HG02132_mat",
+        "HG02132_pat",
+        "HG02135_mat",
+        "HG02135_pat",
+        "HG02145_mat",
+        "HG02145_pat",
+        "HG02148_mat",
+        "HG02148_pat",
+        "HG02155_hap1",
+        "HG02155_hap2",
+        "HG02165_hap1",
+        "HG02165_hap2",
+        "HG02178_hap1",
+        "HG02178_hap2",
+        "HG02257_mat",
+        "HG02257_pat",
+        "HG02258_mat",
+        "HG02258_pat",
+        "HG02273_hap1",
+        "HG02273_hap2",
+        "HG02280_mat",
+        "HG02280_pat",
+        "HG02293_mat",
+        "HG02293_pat",
+        "HG02300_mat",
+        "HG02300_pat",
+        "HG02391_hap1",
+        "HG02391_hap2",
+        "HG02392_hap1",
+        "HG02392_hap2",
+        "HG02451_mat",
+        "HG02451_pat",
+        "HG02486_mat",
+        "HG02486_pat",
+        "HG02514_mat",
+        "HG02514_pat",
+        "HG02523_mat",
+        "HG02523_pat",
+        "HG02559_mat",
+        "HG02559_pat",
+        "HG02572_mat",
+        "HG02572_pat",
+        "HG02583_hap1",
+        "HG02583_hap2",
+        "HG02602_mat",
+        "HG02602_pat",
+        "HG02615_mat",
+        "HG02615_pat",
+        "HG02622_mat",
+        "HG02622_pat",
+        "HG02630_mat",
+        "HG02630_pat",
+        "HG02647_mat",
+        "HG02647_pat",
+        "HG02668_mat",
+        "HG02668_pat",
+        "HG02698_mat",
+        "HG02698_pat",
+        "HG02717_mat",
+        "HG02717_pat",
+        "HG02723_mat",
+        "HG02723_pat",
+        "HG02735_mat",
+        "HG02735_pat",
+        "HG02738_mat",
+        "HG02738_pat",
+        "HG02809_mat",
+        "HG02809_pat",
+        "HG02818_mat",
+        "HG02818_pat",
+        "HG02841_mat",
+        "HG02841_pat",
+        "HG02886_mat",
+        "HG02886_pat",
+        "HG02922_hap1",
+        "HG02922_hap2",
+        "HG02965_hap1",
+        "HG02965_hap2",
+        "HG02976_hap1",
+        "HG02976_hap2",
+        "HG02984_mat",
+        "HG02984_pat",
+        "HG03017_mat",
+        "HG03017_pat",
+        "HG03041_mat",
+        "HG03041_pat",
+        "HG03050_mat",
+        "HG03050_pat",
+        "HG03098_mat",
+        "HG03098_pat",
+        "HG03130_hap1",
+        "HG03130_hap2",
+        "HG03139_hap1",
+        "HG03139_hap2",
+        "HG03195_hap1",
+        "HG03195_hap2",
+        "HG03209_hap1",
+        "HG03209_hap2",
+        "HG03225_hap1",
+        "HG03225_hap2",
+        "HG03239_mat",
+        "HG03239_pat",
+        "HG03270_hap1",
+        "HG03270_hap2",
+        "HG03369_hap1",
+        "HG03369_hap2",
+        "HG03453_mat",
+        "HG03453_pat",
+        "HG03470_hap1",
+        "HG03470_hap2",
+        "HG03471_hap1",
+        "HG03471_hap2",
+        "HG03486_mat",
+        "HG03486_pat",
+        "HG03516_mat",
+        "HG03516_pat",
+        "HG03521_hap1",
+        "HG03521_hap2",
+        "HG03540_mat",
+        "HG03540_pat",
+        "HG03579_mat",
+        "HG03579_pat",
+        "HG03583_hap1",
+        "HG03583_hap2",
+        "HG03654_mat",
+        "HG03654_pat",
+        "HG03669_mat",
+        "HG03669_pat",
+        "HG03688_mat",
+        "HG03688_pat",
+        "HG03704_mat",
+        "HG03704_pat",
+        "HG03710_mat",
+        "HG03710_pat",
+        "HG03742_hap1",
+        "HG03742_hap2",
+        "HG03784_hap1",
+        "HG03784_hap2",
+        "HG03804_mat",
+        "HG03804_pat",
+        "HG03816_mat",
+        "HG03816_pat",
+        "HG03831_mat",
+        "HG03831_pat",
+        "HG03834_mat",
+        "HG03834_pat",
+        "HG03874_hap1",
+        "HG03874_hap2",
+        "HG03927_mat",
+        "HG03927_pat",
+        "HG03942_mat",
+        "HG03942_pat",
+        "HG04115_mat",
+        "HG04115_pat",
+        "HG04157_mat",
+        "HG04157_pat",
+        "HG04160_mat",
+        "HG04160_pat",
+        "HG04184_mat",
+        "HG04184_pat",
+        "HG04187_mat",
+        "HG04187_pat",
+        "HG04199_mat",
+        "HG04199_pat",
+        "HG04204_mat",
+        "HG04204_pat",
+        "HG04228_mat",
+        "HG04228_pat",
+        "HG06807_mat",
+        "HG06807_pat",
+        "NA18505_hap1",
+        "NA18505_hap2",
+        "NA18508_hap1",
+        "NA18508_hap2",
+        "NA18522_hap1",
+        "NA18522_hap2",
+        "NA18565_hap1",
+        "NA18565_hap2",
+        "NA18570_hap1",
+        "NA18570_hap2",
+        "NA18608_hap1",
+        "NA18608_hap2",
+        "NA18620_hap1",
+        "NA18620_hap2",
+        "NA18747_hap1",
+        "NA18747_hap2",
+        "NA18879_hap1",
+        "NA18879_hap2",
+        "NA18906_mat",
+        "NA18906_pat",
+        "NA18940_hap1",
+        "NA18940_hap2",
+        "NA18943_hap1",
+        "NA18943_hap2",
+        "NA18944_hap1",
+        "NA18944_hap2",
+        "NA18945_hap1",
+        "NA18945_hap2",
+        "NA18948_hap1",
+        "NA18948_hap2",
+        "NA18952_hap1",
+        "NA18952_hap2",
+        "NA18959_hap1",
+        "NA18959_hap2",
+        "NA18960_hap1",
+        "NA18960_hap2",
+        "NA18967_hap1",
+        "NA18967_hap2",
+        "NA18970_hap1",
+        "NA18970_hap2",
+        "NA18971_hap1",
+        "NA18971_hap2",
+        "NA18974_hap1",
+        "NA18974_hap2",
+        "NA18976_hap1",
+        "NA18976_hap2",
+        "NA18982_hap1",
+        "NA18982_hap2",
+        "NA18983_hap1",
+        "NA18983_hap2",
+        "NA19036_hap1",
+        "NA19036_hap2",
+        "NA19043_hap1",
+        "NA19043_hap2",
+        "NA19087_hap1",
+        "NA19087_hap2",
+        "NA19159_hap1",
+        "NA19159_hap2",
+        "NA19185_hap1",
+        "NA19185_hap2",
+        "NA19240_mat",
+        "NA19240_pat",
+        "NA19338_hap1",
+        "NA19338_hap2",
+        "NA19391_hap1",
+        "NA19391_hap2",
+        "NA19443_hap1",
+        "NA19443_hap2",
+        "NA19468_hap1",
+        "NA19468_hap2",
+        "NA19682_hap1",
+        "NA19682_hap2",
+        "NA19700_hap1",
+        "NA19700_hap2",
+        "NA19776_hap1",
+        "NA19776_hap2",
+        "NA19835_hap1",
+        "NA19835_hap2",
+        "NA19909_hap1",
+        "NA19909_hap2",
+        "NA20129_mat",
+        "NA20129_pat",
+        "NA20282_hap1",
+        "NA20282_hap2",
+        "NA20346_hap1",
+        "NA20346_hap2",
+        "NA20503_hap1",
+        "NA20503_hap2",
+        "NA20752_hap1",
+        "NA20752_hap2",
+        "NA20762_hap1",
+        "NA20762_hap2",
+        "NA20799_hap1",
+        "NA20799_hap2",
+        "NA20805_hap1",
+        "NA20805_hap2",
+        "NA20806_hap1",
+        "NA20806_hap2",
+        "NA20809_hap1",
+        "NA20809_hap2",
+        "NA20827_hap1",
+        "NA20827_hap2",
+        "NA20850_hap1",
+        "NA20850_hap2",
+        "NA20870_hap1",
+        "NA20870_hap2",
+        "NA20905_hap1",
+        "NA20905_hap2",
+        "NA21093_hap1",
+        "NA21093_hap2",
+        "NA21102_hap1",
+        "NA21102_hap2",
+        "NA21106_hap1",
+        "NA21106_hap2",
+        "NA21110_hap1",
+        "NA21110_hap2",
+        "NA21144_hap1",
+        "NA21144_hap2",
+        "NA21309_mat",
+        "NA21309_pat"
+      ],
+      "HPRC_haplotypes": 462,
+      "references": [
+        "CHM13",
+        "GRCh38"
+      ],
+      "encoding": {
+        "1": "CGI-positive",
+        "0": "CGI-negative",
+        ".": "missing state"
+      },
+      "note": "Reference states describe CGI presence at the locus."
+    }
+  },
+  "FASTA": {
+    "path": "sequences/PanCGI_alleles.fa.gz",
+    "records": 47039,
+    "header": "allele_id",
+    "orientation": "source-assembly forward",
+    "line_width": 80
+  },
+  "BED": {
+    "layout": "UCSC cpgIslandExt, 10 columns (BED4+6), no header",
+    "coordinates": "0-based half-open",
+    "columns": [
+      {
+        "name": "chrom",
+        "description": "Source assembly contig."
+      },
+      {
+        "name": "start0",
+        "description": "0-based inclusive start."
+      },
+      {
+        "name": "end0",
+        "description": "0-based exclusive end."
+      },
+      {
+        "name": "name",
+        "description": "CpG count label (CpG: N)."
+      },
+      {
+        "name": "length",
+        "description": "Interval length in bp."
+      },
+      {
+        "name": "cpgNum",
+        "description": "CpG count in the CGI call."
+      },
+      {
+        "name": "gcNum",
+        "description": "GC count estimated as rounded length * perGc / 100."
+      },
+      {
+        "name": "perCpg",
+        "description": "Rounded CpG percentage: 200 * cpgNum / length."
+      },
+      {
+        "name": "perGc",
+        "description": "GC percentage in the CGI call."
+      },
+      {
+        "name": "obsExp",
+        "description": "CpG observed/expected ratio in the CGI call."
+      }
+    ]
+  }
+}

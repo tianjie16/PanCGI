@@ -1,0 +1,4 @@
+gfa_record_type	gfa_sample	gfa_haplotype	gfa_sequence	gfa_path_name	hal_genome	hal_sequence
+P				opaque/0	Reference-Z	ref_opaque
+P				opaque/1	insertion-sample	contig_INS
+P				opaque/2	deletion-sample	contig_DEL

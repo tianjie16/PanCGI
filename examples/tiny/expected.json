@@ -1,0 +1,11 @@
+{
+  "scope": "Synthetic engineering example, not biological validation",
+  "genome_n": 3,
+  "sample_haplotype_n": 2,
+  "locus_n": 2,
+  "allele_n": 3,
+  "member_n": 4,
+  "allele_ids": ["insertion-sample_contig_INS:950:1350", "deletion-sample_contig_DEL:950:1250", "insertion-sample_contig_INS:1900:2200"],
+  "sample_member_mechanisms": {"INS-internal": 1, "DEL-junction": 1, "non-SV": 1},
+  "source": "Deterministic synthetic MAF/GFA sequence construction with seed 70869; HAL from maf2hal. CGI intervals are supplied test features, not caller discovery output."
+}

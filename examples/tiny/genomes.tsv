@@ -1,0 +1,4 @@
+hal_genome	role	cpgi_bed	sv_tsv
+Reference-Z	primary_reference	Reference-Z.bed	Reference-Z.sv.tsv
+insertion-sample	sample	insertion-sample.bed	insertion-sample.sv.tsv
+deletion-sample	sample	deletion-sample.bed	deletion-sample.sv.tsv

@@ -1,0 +1,2 @@
+ref_contig	ref_pos1	ref_end1	sv_id	sv_type	asm_contig	asm_start0	asm_end0	sv_length
+ref_opaque	1050	1150	explicit-DEL	DEL	contig_DEL	1050	1050	-100

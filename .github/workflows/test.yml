@@ -1,0 +1,32 @@
+name: Test
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y build-essential pkg-config
+      - run: python -m pip install . build
+      - run: python -m pip check
+      - run: bash tests/run_all.sh
+      - run: python -m build
+      - run: docker pull quay.io/comparative-genomics-toolkit/cactus@sha256:646480e4b4870d57fd3a32c2724eea596079de59e8082d0067b9acfbd8cd5c5d
+      - run: >-
+          pancgi prepare --gfa examples/tiny/tiny.gfa --hal examples/tiny/tiny.hal
+          --hal-runtime docker
+          --docker-image quay.io/comparative-genomics-toolkit/cactus@sha256:646480e4b4870d57fd3a32c2724eea596079de59e8082d0067b9acfbd8cd5c5d
+          --hal-stats /home/cactus/bin/halStats --out-dir example_prepared
+      - run: >-
+          pancgi run --prepared example_prepared --gfa examples/tiny/tiny.gfa --hal examples/tiny/tiny.hal
+          --genomes examples/tiny/genomes.tsv --paths examples/tiny/paths.tsv
+          --hal-runtime docker
+          --docker-image quay.io/comparative-genomics-toolkit/cactus@sha256:646480e4b4870d57fd3a32c2724eea596079de59e8082d0067b9acfbd8cd5c5d
+          --hal-stats /home/cactus/bin/halStats --hal2fasta /home/cactus/bin/hal2fasta
+          --hal-liftover /home/cactus/bin/halLiftover --threads 2 --hal-threads 1 --out-dir example_run
+      - run: pancgi validate-results example_run/results
+      - run: python tests/check_example.py example_run/results examples/tiny/expected.json

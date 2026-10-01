@@ -1,0 +1,56 @@
+{
+  "package": "PanCGI",
+  "version": "0.1.2",
+  "license": "Apache-2.0",
+  "genotype_model": "multi_scale_graph_genotyping",
+  "allele_profile": {
+    "identity": 0.8,
+    "min_len_ratio": 0.8,
+    "cluster_mode": "allpairs_clique",
+    "representative": "asm_seq_medoid"
+  },
+  "alignment_profile": {
+    "parasail_precision_bits": 32,
+    "mode": "sg",
+    "match": 2,
+    "mismatch": -3,
+    "gap_open": 5,
+    "gap_extend": 2,
+    "wfa_threshold_bp": 100000
+  },
+  "public_inputs": [
+    "gfa",
+    "hal",
+    "prepared_inventory",
+    "genomes.tsv",
+    "paths.tsv"
+  ],
+  "optional_inputs": [
+    "hal_only_exclusions.tsv"
+  ],
+  "path_mapping_columns": [
+    "gfa_record_type",
+    "gfa_sample",
+    "gfa_haplotype",
+    "gfa_sequence",
+    "gfa_path_name",
+    "hal_genome",
+    "hal_sequence"
+  ],
+  "sv_types": [
+    "INS",
+    "DEL"
+  ],
+  "sv_input_columns": [
+    "ref_contig",
+    "ref_pos1",
+    "ref_end1",
+    "sv_id",
+    "sv_type",
+    "asm_contig",
+    "asm_start0",
+    "asm_end0",
+    "sv_length"
+  ],
+  "sv_length_policy": "Original signed VCF SVLEN"
+}
