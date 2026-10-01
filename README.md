@@ -43,6 +43,13 @@ pancgi --version
 
 Python packages are installed with PanCGI. Bash and the HAL executables are required to run the pipeline. See the [installation guide](docs/installation.md) for native and Docker-backed HAL execution and a complete example. Packaged software is available from the [software release](https://github.com/tianjie16/PanCGI/releases/tag/v0.1.3).
 
+The bundled example was tested on Ubuntu 22.04.5 LTS (x86-64, WSL2), Python
+3.12.13 and HAL 2.2 with the pinned Python dependencies. No GPU or other
+specialized hardware is required. Two CPU cores and 2 GB RAM are sufficient
+for the example. Wheel installation takes less than one minute once dependencies
+are available; the example takes about one minute. See the
+[installation guide](docs/installation.md) for commands and expected results.
+
 ## Usage
 
 Provide CGI calls for each assembly, a pangenome graph, the corresponding HAL file and per-haplotype insertion/deletion annotations, as specified in the [input formats](docs/inputs.md).

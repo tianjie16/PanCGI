@@ -18,6 +18,18 @@ The wheel and source distribution contain the application, command scripts,
 input documentation and synthetic example. The source distribution also
 includes development tests.
 
+## Tested environment and installation time
+
+The bundled example was tested on Ubuntu 22.04.5 LTS (x86-64, WSL2), Python
+3.12.13 and HAL 2.2, using the dependency versions listed in the package.
+No GPU or other specialized hardware is required. Two CPU cores and 2 GB RAM
+are sufficient for the bundled example. Larger datasets require additional
+memory and storage, as described in [Computational resources](resources.md).
+
+Installing the Python wheel takes less than one minute when Python dependencies
+are already available. First-time dependency downloads and HAL installation
+add to the setup time.
+
 ## HAL
 
 Provide `halStats`, `hal2fasta` and `halLiftover` on PATH or pass their executable
@@ -54,6 +66,18 @@ pancgi validate-results example_run/results
 In Docker HAL mode, replace the native option with the runtime/image/executable options above for both
 `prepare` and `run`. Every command exposes its accepted options with `--help`.
 Use a fresh output directory for each run.
+
+### Expected output and runtime
+
+The example produces two loci, three alleles and four CGI members. Result tables
+and representative sequences are written to `example_run/results/`; the main
+tables are `pancgi.loci.tsv.gz`, `pancgi.alleles.tsv.gz` and
+`pancgi.members.tsv.gz`. Expected counts and identifiers are supplied in
+`examples/tiny/expected.json`.
+
+Allow about one minute for the example. Preparation, analysis and output checks
+took approximately 15 seconds on an Intel Core i9-14900K with two CPU cores
+allocated, using the tested environment above.
 
 ## Development tests
 
