@@ -40,10 +40,8 @@ tables. Use a new output directory for each run.
 
 - [Input formats](docs/inputs.md): genome roles, seven-column W/P mapping,
   CGI BED10, signed INS/DEL SVLEN and coordinate conventions.
-- [Methods and outputs](docs/methods-and-outputs.md): locus and allele rules,
-  graph-genotyping parameters, output fields, missingness and identifiers.
-- [Genotype evidence](docs/genotype-evidence.md): callability, source identities
-  and placement records.
+- [Outputs](docs/outputs.md): result files, identifiers, coordinates,
+  CGI states and sample frequencies.
 - [Resource management](docs/resources.md): CPU, memory, scratch and completion.
 - [Dependencies](DEPENDENCIES.md): external software and upstream projects.
 
