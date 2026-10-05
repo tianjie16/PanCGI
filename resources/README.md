@@ -16,9 +16,9 @@ This resource comprises 47,039 CpG island (CGI) alleles at 33,463 loci, 12,639,2
 
 ## Catalogue
 
-The allele catalogue corresponds to Supplementary Table 9 (`HPRC2_catalogue=1`). Join alleles to loci by `locus_id`, members to alleles by `allele_id`, and haplotypes to `metadata/assemblies.tsv` by `haplotype_id`. Each member is an assembly-specific CGI call; an allele groups similar member sequences. FASTA record names are allele IDs, also used as representative member IDs. Member coordinates and assembly sources identify individual member sequences.
+The catalogue contains CGI alleles observed in the 462 HPRC haplotypes (`HPRC2_catalogue=1`). Join alleles to loci by `locus_id`, members to alleles by `allele_id`, and haplotypes to `metadata/assemblies.tsv` by `haplotype_id`. Each member is an assembly-specific CGI call; an allele groups similar member sequences. FASTA record names are allele IDs, also used as representative member IDs. Member coordinates and assembly sources identify individual member sequences.
 
-Representative and member assembly intervals are 0-based, half-open. CHM13 locus coordinates and associated-SV positions use the 1-based convention of Supplementary Table 9. Trajectory coordinates follow Supplementary Table 10.
+Representative and member assembly intervals are 0-based, half-open. In the locus and allele catalogues, CHM13 locus bounds are 1-based, inclusive; associated-SV positions are 1-based CHM13 event positions. Trajectory coordinates are defined in `SCHEMA.json`.
 
 FASTA sequences are in the forward orientation of the source assembly. The `representative_sequence_*` fields describe these bases, including ambiguous bases and assembly gaps. CGI-call statistics describe the masked sequence used for calling; FASTA statistics describe the underlying assembly sequence.
 

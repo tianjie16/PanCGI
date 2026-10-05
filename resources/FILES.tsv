@@ -1,7 +1,7 @@
 path	bytes	md5
 DATA_LICENSE	18967	3f0fe52f635488f0881aee91b1623754
-README.md	4323	cb9adf0c085b215aa336ec5ebfff1c79
-SCHEMA.json	42644	efad8523470679f0f7498531570570bd
+README.md	4368	6da14af86ef6e16de14c711003827727
+SCHEMA.json	44247	e6f219b5165f8c2ba90e87d95eae0556
 calls/masked/HG00097_hap1.cpgIsland.masked.bed	2203585	37964af45c63ccf436f3c360c3a4b9df
 calls/masked/HG00097_hap2.cpgIsland.masked.bed	2184865	02cf8a17edf0b5f7fca2909bb1717f69
 calls/masked/HG00099_hap1.cpgIsland.masked.bed	2249949	ee1d49d2afc46830a51ec146b4f6cc0d
@@ -934,7 +934,7 @@ evolution/PanCGI_trajectories.tsv.gz	56583	8b8dd7b9684d68f65a21e336f09f4ce8
 genotypes/PanCGI_allele_haplotype_states.tsv.gz	2181081	d8c253d8a78310b5d9006556b429113e
 genotypes/PanCGI_locus_haplotype_states.tsv.gz	715532	21ed4ef2a18d35293f73512ffc5ebc0c
 metadata/CGI_BED_files.tsv	116333	865d51652589a483563be90083e65e71
-metadata/FIELDS.tsv	12750	3b9d4b97b9d0ae343147882f013e3fde
+metadata/FIELDS.tsv	14353	96cd29383269b8e8fdeefa6407fab3d8
 metadata/assemblies.tsv	306450	26da05c999fee7267f114bb967d2bde4
 metadata/assembly_contigs.tsv.gz	246314	20ae87afe078520a801af66c23c3f705
 sequences/PanCGI_alleles.fa.gz	9808464	83effca128d2e0f349c805c3a82e18d4

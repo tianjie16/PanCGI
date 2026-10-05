@@ -185,7 +185,7 @@ INTERNAL_CATALOG_COLUMNS = [
 def validate_internal_catalog_header(fieldnames: Optional[Sequence[str]]) -> None:
     observed = list(fieldnames or [])
     if observed != INTERNAL_CATALOG_COLUMNS:
-        raise ValueError(f'Invalid PanCGI publication catalog columns: {observed!r}')
+        raise ValueError(f'Invalid PanCGI catalogue columns: {observed!r}')
 
 
 def validate_internal_catalog_row(row: Dict[str, str], line_number: int) -> None:
@@ -1186,7 +1186,7 @@ def long_seq_similarity(seq1: Optional[str], seq2: Optional[str], args: argparse
         return None
     backend = str(args.very_long_backend)
     if backend != 'external':
-        raise ValueError('Publication allele clustering requires the declared WFA backend for long sequences')
+        raise ValueError('Allele clustering of long sequences requires the configured WFA backend.')
     sim = external_long_identity(seq1, seq2, args)
     if sim is None or not math.isfinite(sim) or not 0 <= sim <= 1:
         raise RuntimeError('Invalid WFA identity; refusing alternate alignment')
@@ -1231,7 +1231,7 @@ def parasail_semiglobal_identity(
 def resolve_seq_backend(args: argparse.Namespace) -> str:
     backend = str(getattr(args, 'seq_backend', 'parasail')).lower()
     if backend != 'parasail':
-        raise ValueError('Publication allele clustering requires Parasail')
+        raise ValueError('Allele clustering requires Parasail.')
     return backend
 
 
