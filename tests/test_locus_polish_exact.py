@@ -48,7 +48,7 @@ def read_text(path: Path) -> str:
 
 
 def test_locus_polishing_is_deterministic() -> None:
-    here = Path(__file__).resolve().parents[1]
+    here = (Path(__file__).resolve().parents[1] / "src" / "pancgi_app")
     script = here / 'cpgi_nr_prod.py'
     with tempfile.TemporaryDirectory(prefix='pancgi_polishing_') as td:
         td = Path(td)

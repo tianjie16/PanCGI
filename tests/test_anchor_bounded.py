@@ -24,7 +24,7 @@ from pancgi_contract import file_state
 from test_locus_polish_exact import make_feat, write_jsonl_gz, write_tsv
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src" / "pancgi_app")
 SCALING_EVIDENCE = []
 
 
@@ -217,7 +217,7 @@ class AnchorBoundedTests(unittest.TestCase):
             finally:
                 store.close()
 
-    def test_state_parameter_and_device_checks_not_bypassed(self):
+    def test_state_parameter_checks_and_cross_node_reuse(self):
         with self.assertRaisesRegex(ValueError, 'parameter mismatch'):
             bounded.FeatureMap(self.db, 4, 8, 1000, 100000)
         store = self.reader()
@@ -233,8 +233,12 @@ class AnchorBoundedTests(unittest.TestCase):
             meta['source_state'] = file_state(self.source)
             meta['source_state'][0] += 1
             db.execute('UPDATE shared_metadata SET payload=?', (json.dumps(meta),))
-        with self.assertRaisesRegex(ValueError, 'Source features changed'):
-            self.reader()
+        store = self.reader()
+        try:
+            self.assertEqual(len(store), len(self.records))
+            store.check()
+        finally:
+            store.close()
 
     def test_index_raw_corruption_and_count_mismatch_rejected(self):
         fid = self.records[0]['fid']

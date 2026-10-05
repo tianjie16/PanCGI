@@ -3949,7 +3949,7 @@ def emit_merged_fasta(path: str, allele_df: pd.DataFrame, feat_idx: Dict[str, Di
 
 
 def cmd_strict_genotype_prod(args: argparse.Namespace) -> None:
-    from pancgi_or5.pipeline import run
+    from pancgi_genotyping.pipeline import run
     run(args)
 
 
@@ -4319,7 +4319,7 @@ def cmd_emit_merged(args: argparse.Namespace) -> None:
             'locus_member_graph_positions': member_graph_positions_compact(locus_member_ids, feat_idx),
             'locus_member_asm_midpoints': member_asm_midpoints_compact(locus_member_ids),
             'locus_member_primary_midpoints': member_primary_midpoints_compact(locus_member_ids, feat_idx),
-            'strict_genotype_mode': 'source_or_hard_f05_m02',
+            'strict_genotype_mode': 'multi_scale_graph_genotyping',
             'allele_callable_asm_n': allele_callable_asm_n,
             'allele_callable_total_n': allele_callable_total_n,
             'locus_callable_asm_n': locus_callable_asm_n,

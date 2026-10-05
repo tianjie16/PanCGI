@@ -227,7 +227,7 @@ def main():
     public_loci = {r['locus_id']: r for r in locus_rows}
     with gzip.open(output/'pancgi.genotype_evidence.jsonl.gz', 'wt') as evidence_output:
         for gid in labels:
-            with gzip.open(root/'pancgi.or5'/f'{gid}.evidence.jsonl.gz', 'rt') as evidence_input:
+            with gzip.open(root/'pancgi.genotyping'/f'{gid}.evidence.jsonl.gz', 'rt') as evidence_input:
                 for line in evidence_input:
                     record = json.loads(line)
                     if record['hal_genome'] != labels[gid] or record['locus_id'] not in statistics['locus']:
@@ -246,7 +246,7 @@ def main():
     (output/'qc.json').write_text(json.dumps(qc, indent=2)+'\n')
     profile = json.loads((Path(__file__).parent/'RELEASE_MANIFEST.json').read_text())
     run = dict(schema_version=VERSION, package=profile, logical_inputs=lock['logical_inputs'],
-               source_sha256=lock['code'], genotype_configuration=json.loads((root/'pancgi.or5/completed.json').read_text())['config'],
+               source_sha256=lock['code'], genotype_configuration=json.loads((root/'pancgi.genotyping/completed.json').read_text())['config'],
                python_version=platform.python_version(), dependency_versions={name:importlib.metadata.version(name)
                    for name in ('numpy','pandas','pyarrow','biopython','parasail','pywfa')})
     run['effective_stage_parameters'] = public_parameters(root.parent/'parameters')

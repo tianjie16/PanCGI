@@ -81,7 +81,7 @@ allocated, using the tested environment above.
 
 ## Development tests
 
-Run the test suite from the source directory:
+Run the test suite from the repository root:
 
 ```bash
 bash tests/run_all.sh

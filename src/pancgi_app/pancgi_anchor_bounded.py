@@ -69,10 +69,7 @@ class FeatureMap(Mapping):
             raise ValueError('Shared feature count mismatch')
 
     def _connect(self):
-        conn = sqlite3.connect(Path(self.path).as_uri() + '?mode=ro', uri=True,
-                               check_same_thread=False)
-        conn.execute('PRAGMA query_only=ON')
-        conn.execute('PRAGMA cache_size=-4096')
+        conn = shared.connect(self.path, cache_kib=4096, check_same_thread=False)
         conn.execute('PRAGMA mmap_size=0')
         conn.execute('PRAGMA temp_store=FILE')
         return conn
@@ -80,6 +77,7 @@ class FeatureMap(Mapping):
     def _local(self):
         
         if self.pid != os.getpid():
+            self.conn.check_files()
             self.conn.close()
             self.pid = os.getpid()
             self.lock = threading.RLock()

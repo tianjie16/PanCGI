@@ -1,6 +1,6 @@
 import copy
 import unittest
-from pancgi_or5.caller import evaluate
+from pancgi_genotyping.caller import evaluate
 
 
 def source(name, offsets):

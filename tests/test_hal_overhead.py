@@ -11,7 +11,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = (Path(__file__).resolve().parents[1] / "src" / "pancgi_app")
 sys.path.insert(0, str(ROOT))
 
 import pancgi_contract as contract

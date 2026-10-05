@@ -11,7 +11,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str((Path(__file__).resolve().parents[1] / "src" / "pancgi_app")))
 
 import pancgi_graph_unfold as unfold
 import pancgi_mapping as mapping

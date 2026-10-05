@@ -41,7 +41,7 @@ python -m pip install .
 pancgi --version
 ```
 
-Python packages are installed with PanCGI. Bash and the HAL executables are required to run the pipeline. See the [installation guide](docs/installation.md) for native and Docker-backed HAL execution and a complete example. Packaged software is available from the [software release](https://github.com/tianjie16/PanCGI/releases/tag/v0.1.3).
+Python packages are installed with PanCGI. Bash and the HAL executables are required to run the pipeline. See the [installation guide](docs/installation.md) for native and Docker-backed HAL execution and a complete example. Published packages are listed under [software releases](https://github.com/tianjie16/PanCGI/releases).
 
 The bundled example was tested on Ubuntu 22.04.5 LTS (x86-64, WSL2), Python
 3.12.13 and HAL 2.2 with the pinned Python dependencies. No GPU or other

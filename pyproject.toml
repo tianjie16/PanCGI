@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pancgi"
-version = "0.1.3"
+version = "0.1.4"
 authors = [{name = "Tianjie Liu"}]
 maintainers = [{name = "Tianjie Liu"}]
 license = "Apache-2.0"
@@ -29,9 +29,14 @@ Repository = "https://github.com/tianjie16/PanCGI"
 Issues = "https://github.com/tianjie16/PanCGI/issues"
 
 [tool.setuptools]
-packages = ["pancgi_app", "pancgi_app.pancgi_or5"]
-package-dir = {pancgi_app = "."}
+package-dir = {"" = "src", tools = "tools"}
 include-package-data = false
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.cmdclass]
+build_py = "tools.build_support.BuildPy"
+
 [tool.setuptools.package-data]
-pancgi_app = ["scripts/*.sh", "scripts/*.py", "RELEASE_MANIFEST.json", "environment.yml", "README.md", "DEPENDENCIES.md", "LICENSE", "NOTICE", "docs/*.md", "examples/tiny/*", "assets/*.png", "resources/*.md", "resources/*.tsv", "resources/*.txt", "resources/*.json", "resources/DATA_LICENSE"]
+pancgi_app = ["scripts/*.sh", "scripts/*.py", "RELEASE_MANIFEST.json"]

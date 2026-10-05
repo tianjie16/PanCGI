@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pancgi_pathbed as pathbed
-from pancgi_or5 import pipeline
+from pancgi_genotyping import pipeline
 from pancgi_validation_store import ValidationStore
 
 

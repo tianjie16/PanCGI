@@ -256,7 +256,7 @@ def run(args):
     for label in labels:
         if observed_loci[label] != {allele_to_locus[a] for a in observed_alleles[label]}:
             raise ValueError('Locus and allele observed memberships disagree')
-    root = Path(args.out_prefix + '.or5')
+    root = Path(args.out_prefix + '.genotyping')
     if root.exists():
         raise FileExistsError(root)
     root.mkdir(parents=True)

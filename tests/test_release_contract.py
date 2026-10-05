@@ -13,7 +13,7 @@ import cpgi_sv_annot as sv
 import cpgi_nr_prod as prod
 from pancgi_contract import GENOMES, PATHS, SV, read_exact, read_bed, storage_id, validate_sv, digest
 from pancgi_inputs import prepare_inputs
-from pancgi_or5.caller import evaluate, propagate
+from pancgi_genotyping.caller import evaluate, propagate
 import pancgi_mapping as mapping
 
 
